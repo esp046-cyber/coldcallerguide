@@ -1,0 +1,36 @@
+{
+  "id": "/coldcallerguide/",
+  "name": "2026 Cold Caller Working Guide",
+  "short_name": "ColdCaller 26",
+  "description": "Real estate cold calling scripts, objection handling, KPI tracker and compliance checklist. Works offline.",
+  "lang": "en-AU",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0A4D53",
+  "theme_color": "#0A4D53",
+  "categories": ["business", "productivity", "education"],
+  "icons": [
+    { "src": "./icons/icon-72.png", "sizes": "72x72", "type": "image/png" },
+    { "src": "./icons/icon-96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "./icons/icon-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "./icons/icon-144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "./icons/icon-152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-384.png", "sizes": "384x384", "type": "image/png" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Scripts", "short_name": "Scripts", "url": "./index.html#scripts", "icons": [{ "src": "./icons/icon-96.png", "sizes": "96x96" }] },
+    { "name": "Objections", "short_name": "Objections", "url": "./index.html#obj", "icons": [{ "src": "./icons/icon-96.png", "sizes": "96x96" }] },
+    { "name": "Checklist", "short_name": "Checklist", "url": "./index.html#check", "icons": [{ "src": "./icons/icon-96.png", "sizes": "96x96" }] }
+  ],
+  "screenshots": [
+    { "src": "./screenshots/screenshot-narrow.png", "sizes": "540x960", "type": "image/png", "form_factor": "narrow", "label": "Dashboard and KPI tracker" },
+    { "src": "./screenshots/screenshot-wide.png", "sizes": "1280x720", "type": "image/png", "form_factor": "wide", "label": "Scripts and objection matrix" }
+  ]
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 Cold Caller Working Guide | Innovex AI</title>
+<meta name="description" content="2026 Cold Caller Working Guide for real estate outbound calling and appointment setting: scripts, objection handling, KPI tracker, AEST shift planner and compliance checklist. Works offline.">
+<meta name="theme-color" content="#0A4D53">
+<link rel="canonical" href="https://esp046-cyber.github.io/coldcallerguide/">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ColdCaller 26">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026 Cold Caller Working Guide">
+<meta property="og:description" content="Scripts, objection handling, KPI tracker and compliance checklist for real estate cold callers.">
+<meta property="og:url" content="https://esp046-cyber.github.io/coldcallerguide/">
+<meta property="og:image" content="https://esp046-cyber.github.io/coldcallerguide/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 Cold Caller Working Guide">
+<meta name="twitter:image" content="https://esp046-cyber.github.io/coldcallerguide/og-image.png">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="app-header">
+  <div class="brand">
+    <img src="./icons/icon-96.png" alt="" width="40" height="40">
+    <div>
+      <h1>Cold Caller Guide <span class="yr">2026</span></h1>
+      <p class="sub">Innovex AI &middot; Real Estate Appointment Setting</p>
+    </div>
+  </div>
+  <div class="header-actions">
+    <span id="netPill" class="pill online" role="status" aria-live="polite">Online</span>
+    <button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle dark mode">&#9680;</button>
+  </div>
+</header>
+
+<nav class="tabbar" role="tablist" aria-label="Main sections">
+  <button role="tab" class="tab" id="tab-dash" data-tab="dash" aria-selected="true" aria-controls="panel-dash"><span class="ti" aria-hidden="true">&#9201;</span><span>Dashboard</span></button>
+  <button role="tab" class="tab" id="tab-scripts" data-tab="scripts" aria-selected="false" aria-controls="panel-scripts" tabindex="-1"><span class="ti" aria-hidden="true">&#128222;</span><span>Scripts</span></button>
+  <button role="tab" class="tab" id="tab-obj" data-tab="obj" aria-selected="false" aria-controls="panel-obj" tabindex="-1"><span class="ti" aria-hidden="true">&#128737;</span><span>Objections</span></button>
+  <button role="tab" class="tab" id="tab-check" data-tab="check" aria-selected="false" aria-controls="panel-check" tabindex="-1"><span class="ti" aria-hidden="true">&#9989;</span><span>Checklist</span></button>
+  <button role="tab" class="tab" id="tab-app" data-tab="app" aria-selected="false" aria-controls="panel-app" tabindex="-1"><span class="ti" aria-hidden="true">&#9881;</span><span>App</span></button>
+</nav>
+
+<main id="main" class="content">
+
+  <!-- DASHBOARD -->
+  <section id="panel-dash" class="panel" role="tabpanel" aria-labelledby="tab-dash">
+    <div class="grid two">
+      <article class="card">
+        <h2>Dual Clock</h2>
+        <div class="clocks">
+          <div class="clock"><span class="lbl">AEST (Sydney/Melbourne)</span><span id="clockAest" class="time">--:--:--</span><span id="dateAest" class="date"></span></div>
+          <div class="clock"><span class="lbl">Your local time</span><span id="clockLocal" class="time">--:--:--</span><span id="dateLocal" class="date"></span></div>
+        </div>
+        <p id="shiftStatus" class="muted" aria-live="polite"></p>
+        <p class="note">Sydney and Melbourne move to AEDT (UTC+11) in summer. The AEST clock follows the Australia/Sydney zone and shows the real local time.</p>
+      </article>
+
+      <article class="card">
+        <h2>Daily KPI Tracker</h2>
+        <div class="kpis" id="kpis"></div>
+        <div class="kpi-summary" id="kpiSummary" aria-live="polite"></div>
+        <button id="kpiReset" class="btn ghost" type="button">Reset today</button>
+      </article>
+    </div>
+
+    <article class="card" id="scratchpad">
+      <h2>Shift Callback &amp; Hot Lead Scratchpad <small>Saved on this device until you clear the shift</small></h2>
+      <form id="leadForm" class="leadform" autocomplete="off">
+        <label class="field"><span>Prospect name</span><input id="leadName" type="text" placeholder="e.g. Sam Nguyen"></label>
+        <label class="field"><span>Phone</span><input id="leadPhone" type="tel" inputmode="tel" placeholder="e.g. 0412 345 678"></label>
+        <label class="field"><span>Property address</span><input id="leadAddr" type="text" placeholder="e.g. 12 Wattle St, Parramatta"></label>
+        <label class="field"><span>Callback time</span><input id="leadCb" type="datetime-local"></label>
+        <button class="btn" type="submit">Add lead</button>
+      </form>
+      <p id="leadCount" class="muted" aria-live="polite"></p>
+      <ul id="leadList" class="leads"></ul>
+      <div id="leadEmpty" class="empty" hidden>
+        <p><strong>No leads yet.</strong></p>
+        <p>Jot a hot lead or callback during a call and it will show up here.</p>
+      </div>
+      <div class="row">
+        <button id="leadCopy" class="btn" type="button">Copy notes</button>
+        <button id="leadClear" class="btn ghost" type="button">Clear shift</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Shift Planner <small>9:00 AM &ndash; 10:30 PM AEST</small></h2>
+      <ol id="planner" class="planner"></ol>
+    </article>
+
+    <article class="card">
+      <h2>Quick Pitch Cards</h2>
+      <div id="pitchCards" class="grid two"></div>
+    </article>
+  </section>
+
+  <!-- SCRIPTS -->
+  <section id="panel-scripts" class="panel" role="tabpanel" aria-labelledby="tab-scripts" hidden>
+    <h2 class="sec-title">Cold Calling Scripts</h2>
+    <div class="fillbar" id="fillbar" role="group" aria-label="Live call fill-in">
+      <strong class="fill-title">Live Call Fill-In</strong>
+      <span id="fillSummary" class="fill-summary" aria-live="polite"></span>
+      <label class="field f-name"><span>Prospect Name</span><input id="fillName" type="text" placeholder="Prospect name" autocomplete="off" enterkeyhint="next"></label>
+      <label class="field f-suburb"><span>Suburb</span><input id="fillSuburb" type="text" placeholder="Suburb" autocomplete="off" enterkeyhint="next"></label>
+      <label class="field f-street"><span>Street</span><input id="fillStreet" type="text" placeholder="Street" autocomplete="off" enterkeyhint="done"></label>
+      <button id="fillClear" class="btn ghost small" type="button">Clear</button>
+      <button id="fillToggle" class="fill-toggle" type="button" aria-expanded="true" aria-controls="fillbar">Hide fields</button>
+    </div>
+    <p class="muted">Type above and every script updates live. Blank fields stay as <code>[Owner Name]</code>, <code>[Suburb]</code>, <code>[Street]</code>.</p>
+    <div id="scriptFilters" class="chips" role="group" aria-label="Script categories"></div>
+    <div id="scriptList" class="stack"></div>
+  </section>
+
+  <!-- OBJECTIONS -->
+  <section id="panel-obj" class="panel" role="tabpanel" aria-labelledby="tab-obj" hidden>
+    <h2 class="sec-title">Objection Handling Matrix</h2>
+    <label class="search"><span class="sr">Search objections</span>
+      <input id="objSearch" type="search" placeholder="Search e.g. email, agent, number..." autocomplete="off">
+    </label>
+    <p id="objCount" class="muted" aria-live="polite"></p>
+    <div id="objList" class="stack"></div>
+    <div id="objEmpty" class="empty" hidden>
+      <p><strong>No matching objections.</strong></p>
+      <p>Try a shorter keyword or clear the search.</p>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="panel-check" class="panel" role="tabpanel" aria-labelledby="tab-check" hidden>
+    <h2 class="sec-title">Compliance &amp; Pre-Call Checklist</h2>
+    <div class="progress" aria-hidden="true"><div id="checkBar"></div></div>
+    <p id="checkSummary" class="muted" aria-live="polite"></p>
+    <div id="checkList" class="stack"></div>
+    <button id="checkReset" class="btn ghost" type="button">Reset checklist</button>
+
+    <article class="card">
+      <h2>AEST Calling Windows</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Window (local to contact)</th><th>Use</th></tr></thead>
+          <tbody id="windows"></tbody>
+        </table>
+      </div>
+      <p class="note">Always confirm the current rules at acma.gov.au. In Australia, telemarketing calls are generally limited to 9am&ndash;8pm on weekdays and 9am&ndash;5pm on Saturdays, with none on Sundays or national public holidays. Rules differ by country.</p>
+    </article>
+  </section>
+
+  <!-- APP -->
+  <section id="panel-app" class="panel" role="tabpanel" aria-labelledby="tab-app" hidden>
+    <h2 class="sec-title">App &amp; Offline</h2>
+    <article class="card">
+      <h3>Install</h3>
+      <p id="installMsg" class="muted">Install this guide to your home screen for one-tap, full-screen access.</p>
+      <div class="row">
+        <button id="installBtn" class="btn" type="button" hidden>Install app</button>
+        <button id="iosBtn" class="btn ghost" type="button">iPhone / iPad steps</button>
+      </div>
+    </article>
+    <article class="card">
+      <h3>Offline status</h3>
+      <p id="cacheStatus" class="muted" aria-live="polite">Checking...</p>
+    </article>
+    <article class="card">
+      <h3>Data</h3>
+      <p class="muted">KPIs and checklist progress are stored only on this device.</p>
+      <div class="row">
+        <button id="exportBtn" class="btn" type="button">Export / backup KPI data</button>
+        <button id="printBtn" class="btn ghost" type="button">Print scripts</button>
+      </div>
+    </article>
+    <p class="note">Version <span id="ver"></span> &middot; Unofficial working guide for callers.</p>
+  </section>
+</main>
+
+<div id="installBanner" class="banner" hidden>
+  <span>Install Cold Caller Guide for offline use.</span>
+  <button id="bannerInstall" class="btn small" type="button">Install</button>
+  <button id="bannerClose" class="btn ghost small" type="button" aria-label="Dismiss">&times;</button>
+</div>
+
+<div id="updateBar" class="snack" hidden>
+  <span>A new version is available.</span>
+  <button id="updateBtn" class="btn small" type="button">Refresh</button>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<dialog id="iosDialog" class="dialog" aria-labelledby="iosTitle">
+  <h3 id="iosTitle">Add to Home Screen (iOS)</h3>
+  <ol>
+    <li>Open this page in <strong>Safari</strong>.</li>
+    <li>Tap the <strong>Share</strong> button (square with arrow).</li>
+    <li>Scroll and tap <strong>Add to Home Screen</strong>.</li>
+    <li>Tap <strong>Add</strong>. Launch it from your home screen.</li>
+  </ol>
+  <button id="iosClose" class="btn" type="button">Got it</button>
+</dialog>
+
+<script src="./js/app.js" defer></script>
+</body>
+</html>
